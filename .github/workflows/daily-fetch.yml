@@ -2,8 +2,8 @@ name: Daily MarkSix Full Data Update
 
 on:
   schedule:
-    # 每天 UTC14:30 = 台北 22:30
-    - cron: '30 14 * * *'
+    # 每天 UTC13:45 = 台北/香港 21:45
+    - cron: '45 13 * * *'
   workflow_dispatch:
 
 jobs:
@@ -25,11 +25,11 @@ jobs:
     - name: Run full crawler
       run: python marksix_full_crawler.py
 
-    - name: Ensure docs folder & move JSON
+    - name: Ensure docs folder & disable Jekyll
       run: |
         mkdir -p docs
-        mv -f docs/marksix_all.json docs/marksix_all.json
         touch docs/.nojekyll
+
 
     - name: Commit & push updated JSON
       uses: EndBug/add-and-commit@v9

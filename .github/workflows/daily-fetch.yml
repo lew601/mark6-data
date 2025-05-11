@@ -1,3 +1,9 @@
+# .github/workflows/daily-fetch.yml
+
+permissions:
+  contents: write
+
+
 name: Daily MarkSix Full Data Update
 
 on:

@@ -1,0 +1,41 @@
+name: Daily MarkSix JSON Update
+
+on:
+  schedule:
+    # 每天 UTC14:30 = 台北22:30
+    - cron: '30 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+
+    - name: Install requests
+      run: pip install requests
+
+    - name: Run crawler
+      run: python 30marksix_crawler.py
+
+    - name: Move JSON into docs
+      run: |
+        mkdir -p docs
+        mv -f marksix_last30.json docs/marksix_last30.json
+        # 确保 .nojekyll 一直在
+        touch docs/.nojekyll
+
+    - name: Commit & push updated JSON
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: GitHub Actions
+        author_email: actions@github.com
+        message: "ci: update marksix_last30.json"
+        add: "docs/marksix_last30.json"

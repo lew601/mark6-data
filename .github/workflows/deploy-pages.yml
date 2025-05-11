@@ -1,48 +1,38 @@
-name: Build & Deploy MarkSix JSON
+name: Daily MarkSix JSON Fetch
 
-# 每天 UTC 14:30 = 台北時間 22:30
 on:
   schedule:
-    - cron: '30 14 * * *'
+    - cron: '30 14 * * *'     # UTC14:30 = 台北22:30
   workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read      # 允許讀取 repo
-      pages: write        # 允許部署 Pages
-      id-token: write     # 允許 OIDC
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
-      run: pip install requests
+    - run: pip install requests
 
-    - name: Run crawler → output JSON
-      run: python 30marksix_crawler.py
+    - run: python 30marksix_crawler.py
 
-    - name: Prepare public directory
-      run: |
-        rm -rf public
-        mkdir public
-        mv marksix_last30.json public/marksix.json
+    - run: |
+        mkdir -p public
+        mv marksix_last30.json public/marksix_last30.json
         touch public/.nojekyll
 
-    - name: Configure GitHub Pages
-      uses: actions/configure-pages@v3
+    - uses: actions/configure-pages@v3
 
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v1
+    - uses: actions/upload-pages-artifact@v1
       with:
         path: public
 
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v1
+    - uses: actions/deploy-pages@v1

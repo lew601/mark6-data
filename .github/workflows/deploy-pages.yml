@@ -1,8 +1,8 @@
 name: Build & Deploy MarkSix JSON
 
+# 每天 UTC 14:30 = 台北時間 22:30
 on:
   schedule:
-    # 每天 UTC 14:30 = Asia/Taipei 22:30
     - cron: '30 14 * * *'
   workflow_dispatch:
 
@@ -10,9 +10,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
-      contents: read
+      contents: read      # 允許讀取 repo
+      pages: write        # 允許部署 Pages
+      id-token: write     # 允許 OIDC
 
     steps:
     - name: Checkout repository
@@ -24,16 +24,16 @@ jobs:
         python-version: '3.x'
 
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: pip install requests
 
     - name: Run crawler → output JSON
       run: python 30marksix_crawler.py
 
-    - name: Prepare output for Pages
+    - name: Prepare public directory
       run: |
+        rm -rf public
         mkdir public
         mv marksix_last30.json public/marksix.json
-        # 禁用 Jekyll
         touch public/.nojekyll
 
     - name: Configure GitHub Pages

@@ -160,6 +160,25 @@ def save_full(history, draws_data, filename="docs/marksix_all.json"):
         "history":      history
     }
 
+    def adjust(prizes):
+        for p in prizes:
+            raw = p.get("winningUnit", 0)
+            # 除以 10 并保留1位小数
+            p["winningUnit"] = round(raw / 10, 1)
+
+    # 调整 history 里每一期的奖池
+    for draw in all_out["history"]:
+        pool = draw.get("lotteryPool", {})
+        adjust(pool.get("lotteryPrizes", []))
+
+    # 调整 lastDraw
+    last_pool = all_out["lastDraw"].get("lotteryPool", {})
+    adjust(last_pool.get("lotteryPrizes", []))
+
+    # 调整 nextDraw
+    next_pool = all_out["nextDraw"].get("lotteryPool", {})
+    adjust(next_pool.get("lotteryPrizes", []))
+
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(all_out, f, ensure_ascii=False, indent=2)
 

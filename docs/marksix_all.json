@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2025-06-07+08:00"
+    "ts": "2025-06-08+08:00"
   },
   "lastDraw": {
     "id": "202563N",
@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "7775535",
+      "totalInvestment": "12751055",
       "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",

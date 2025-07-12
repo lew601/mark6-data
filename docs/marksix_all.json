@@ -1,15 +1,15 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2025-07-11+08:00"
+    "ts": "2025-07-12+08:00"
   },
   "lastDraw": {
-    "id": "202575N",
+    "id": "202576N",
     "year": "2025",
-    "no": 75,
-    "openDate": "2025-07-08+08:00",
-    "closeDate": "2025-07-10T21:15:00+08:00",
-    "drawDate": "2025-07-10+08:00",
+    "no": 76,
+    "openDate": "2025-07-10+08:00",
+    "closeDate": "2025-07-12T21:15:00+08:00",
+    "drawDate": "2025-07-12+08:00",
     "status": "Result",
     "snowballCode": "",
     "snowballName_en": "",
@@ -17,68 +17,68 @@
     "lotteryPool": {
       "sell": false,
       "status": "Payout",
-      "totalInvestment": "75434727",
-      "jackpot": "34698077",
+      "totalInvestment": "36008395",
+      "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "44000000",
+      "derivedFirstPrizeDiv": "8000000",
       "lotteryPrizes": [
         {
           "type": 1,
-          "winningUnit": 1.0,
-          "dividend": "42939840"
+          "winningUnit": 0.0,
+          "dividend": "0"
         },
         {
           "type": 2,
-          "winningUnit": 2.5,
-          "dividend": "1098900"
+          "winningUnit": 0.0,
+          "dividend": "0"
         },
         {
           "type": 3,
-          "winningUnit": 204.0,
-          "dividend": "35910"
+          "winningUnit": 57.0,
+          "dividend": "62570"
         },
         {
           "type": 4,
-          "winningUnit": 320.5,
+          "winningUnit": 134.0,
           "dividend": "9600"
         },
         {
           "type": 5,
-          "winningUnit": 7449.9,
+          "winningUnit": 3466.3,
           "dividend": "640"
         },
         {
           "type": 6,
-          "winningUnit": 9423.6,
+          "winningUnit": 3669.6,
           "dividend": "320"
         },
         {
           "type": 7,
-          "winningUnit": 126597.0,
+          "winningUnit": 62377.3,
           "dividend": "40"
         }
       ]
     },
     "drawResult": {
       "drawnNo": [
-        6,
-        13,
-        23,
-        25,
-        32,
-        39
+        5,
+        17,
+        20,
+        24,
+        27,
+        35
       ],
-      "xDrawnNo": 34
+      "xDrawnNo": 38
     }
   },
   "nextDraw": {
-    "id": "202576N",
+    "id": "202577N",
     "year": "2025",
-    "no": 76,
-    "openDate": "2025-07-10+08:00",
-    "closeDate": "2025-07-12T21:15:00+08:00",
-    "drawDate": "2025-07-12+08:00",
+    "no": 77,
+    "openDate": "2025-07-12+08:00",
+    "closeDate": "2025-07-15T21:15:00+08:00",
+    "drawDate": "2025-07-15+08:00",
     "status": "Defined",
     "snowballCode": "",
     "snowballName_en": "",
@@ -86,11 +86,11 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "15704315",
-      "jackpot": "0",
+      "totalInvestment": "7691615",
+      "jackpot": "9337624",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "8000000",
+      "derivedFirstPrizeDiv": "13000000",
       "lotteryPrizes": []
     },
     "drawResult": {
@@ -99,6 +99,75 @@
     }
   },
   "history": [
+    {
+      "id": "202576N",
+      "year": "2025",
+      "no": 76,
+      "openDate": "2025-07-10+08:00",
+      "closeDate": "2025-07-12T21:15:00+08:00",
+      "drawDate": "2025-07-12+08:00",
+      "status": "Result",
+      "snowballCode": "",
+      "snowballName_en": "",
+      "snowballName_ch": "",
+      "lotteryPool": {
+        "sell": false,
+        "status": "Payout",
+        "totalInvestment": "36008395",
+        "jackpot": "0",
+        "unitBet": 10,
+        "estimatedPrize": "",
+        "derivedFirstPrizeDiv": "8000000",
+        "lotteryPrizes": [
+          {
+            "type": 1,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 2,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 3,
+            "winningUnit": 57.0,
+            "dividend": "62570"
+          },
+          {
+            "type": 4,
+            "winningUnit": 134.0,
+            "dividend": "9600"
+          },
+          {
+            "type": 5,
+            "winningUnit": 3466.3,
+            "dividend": "640"
+          },
+          {
+            "type": 6,
+            "winningUnit": 3669.6,
+            "dividend": "320"
+          },
+          {
+            "type": 7,
+            "winningUnit": 62377.3,
+            "dividend": "40"
+          }
+        ]
+      },
+      "drawResult": {
+        "drawnNo": [
+          5,
+          17,
+          20,
+          24,
+          27,
+          35
+        ],
+        "xDrawnNo": 38
+      }
+    },
     {
       "id": "202575N",
       "year": "2025",
@@ -2098,75 +2167,6 @@
           38
         ],
         "xDrawnNo": 47
-      }
-    },
-    {
-      "id": "202546N",
-      "year": "2025",
-      "no": 46,
-      "openDate": "2025-04-24+08:00",
-      "closeDate": "2025-04-26T21:15:00+08:00",
-      "drawDate": "2025-04-26+08:00",
-      "status": "Result",
-      "snowballCode": "",
-      "snowballName_en": "",
-      "snowballName_ch": "",
-      "lotteryPool": {
-        "sell": false,
-        "status": "Payout",
-        "totalInvestment": "47765614",
-        "jackpot": "13225367",
-        "unitBet": 10,
-        "estimatedPrize": "",
-        "derivedFirstPrizeDiv": "18000000",
-        "lotteryPrizes": [
-          {
-            "type": 1,
-            "winningUnit": 0.0,
-            "dividend": "0"
-          },
-          {
-            "type": 2,
-            "winningUnit": 4.0,
-            "dividend": "433860"
-          },
-          {
-            "type": 3,
-            "winningUnit": 81.5,
-            "dividend": "56780"
-          },
-          {
-            "type": 4,
-            "winningUnit": 253.1,
-            "dividend": "9600"
-          },
-          {
-            "type": 5,
-            "winningUnit": 3642.3,
-            "dividend": "640"
-          },
-          {
-            "type": 6,
-            "winningUnit": 7401.4,
-            "dividend": "320"
-          },
-          {
-            "type": 7,
-            "winningUnit": 75520.3,
-            "dividend": "40"
-          }
-        ]
-      },
-      "drawResult": {
-        "drawnNo": [
-          11,
-          15,
-          18,
-          21,
-          29,
-          40
-        ],
-        "xDrawnNo": 8
       }
     }
   ]

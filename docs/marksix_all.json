@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2025-08-04+08:00"
+    "ts": "2025-08-05+08:00"
   },
   "lastDraw": {
     "id": "202584N",
@@ -77,8 +77,8 @@
     "year": "2025",
     "no": 85,
     "openDate": "2025-08-02+08:00",
-    "closeDate": "2025-08-05T21:15:00+08:00",
-    "drawDate": "2025-08-05+08:00",
+    "closeDate": "2025-08-07T21:15:00+08:00",
+    "drawDate": "2025-08-07+08:00",
     "status": "Defined",
     "snowballCode": "",
     "snowballName_en": "",
@@ -86,11 +86,11 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "20544700",
+      "totalInvestment": "30707389",
       "jackpot": "8000000",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "12000000",
+      "derivedFirstPrizeDiv": "14000000",
       "lotteryPrizes": []
     },
     "drawResult": {

@@ -115,7 +115,7 @@ query marksixDraw {
 }
 """
 
-def fetch_history(last_n=30):
+def fetch_history(last_n=100):
     """Fetch the most recent `last_n` draws (history)."""
     payload = {
         "operationName": "marksixResult",
@@ -186,7 +186,7 @@ def save_full(history, draws_data, filename="docs/marksix_all.json"):
 
 if __name__ == "__main__":
     try:
-        history    = fetch_history(30)
+        history    = fetch_history(100)
         draws_data = fetch_draws()
         save_full(history, draws_data)
     except Exception as e:

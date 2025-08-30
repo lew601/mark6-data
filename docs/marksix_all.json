@@ -84,9 +84,9 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "10904430",
+      "sell": false,
+      "status": "StopSell",
+      "totalInvestment": "11162345",
       "jackpot": "27268849",
       "unitBet": 10,
       "estimatedPrize": "",
@@ -2167,75 +2167,6 @@
           45
         ],
         "xDrawnNo": 26
-      }
-    },
-    {
-      "id": "202565N",
-      "year": "2025",
-      "no": 65,
-      "openDate": "2025-06-10+08:00",
-      "closeDate": "2025-06-12T21:15:00+08:00",
-      "drawDate": "2025-06-12+08:00",
-      "status": "Result",
-      "snowballCode": "",
-      "snowballName_en": "",
-      "snowballName_ch": "",
-      "lotteryPool": {
-        "sell": false,
-        "status": "Payout",
-        "totalInvestment": "45513439",
-        "jackpot": "8794520",
-        "unitBet": 10,
-        "estimatedPrize": "",
-        "derivedFirstPrizeDiv": "13000000",
-        "lotteryPrizes": [
-          {
-            "type": 1,
-            "winningUnit": 0.0,
-            "dividend": "0"
-          },
-          {
-            "type": 2,
-            "winningUnit": 1.0,
-            "dividend": "1738820"
-          },
-          {
-            "type": 3,
-            "winningUnit": 47.5,
-            "dividend": "97610"
-          },
-          {
-            "type": 4,
-            "winningUnit": 182.0,
-            "dividend": "9600"
-          },
-          {
-            "type": 5,
-            "winningUnit": 3375.6,
-            "dividend": "640"
-          },
-          {
-            "type": 6,
-            "winningUnit": 5304.2,
-            "dividend": "320"
-          },
-          {
-            "type": 7,
-            "winningUnit": 66996.0,
-            "dividend": "40"
-          }
-        ]
-      },
-      "drawResult": {
-        "drawnNo": [
-          6,
-          25,
-          32,
-          36,
-          39,
-          45
-        ],
-        "xDrawnNo": 13
       }
     },
     {

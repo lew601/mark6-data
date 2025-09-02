@@ -4,93 +4,57 @@
     "ts": "2025-09-02+08:00"
   },
   "lastDraw": {
-    "id": "202595N",
-    "year": "2025",
-    "no": 95,
-    "openDate": "2025-08-28+08:00",
-    "closeDate": "2025-08-30T21:15:00+08:00",
-    "drawDate": "2025-08-30+08:00",
-    "status": "Result",
-    "snowballCode": "",
-    "snowballName_en": "",
-    "snowballName_ch": "",
-    "lotteryPool": {
-      "sell": false,
-      "status": "Payout",
-      "totalInvestment": "57755971",
-      "jackpot": "20599998",
-      "unitBet": 10,
-      "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "28000000",
-      "lotteryPrizes": [
-        {
-          "type": 1,
-          "winningUnit": 0.0,
-          "dividend": "0"
-        },
-        {
-          "type": 2,
-          "winningUnit": 2.0,
-          "dividend": "1111470"
-        },
-        {
-          "type": 3,
-          "winningUnit": 78.5,
-          "dividend": "75510"
-        },
-        {
-          "type": 4,
-          "winningUnit": 185.0,
-          "dividend": "9600"
-        },
-        {
-          "type": 5,
-          "winningUnit": 4803.5,
-          "dividend": "640"
-        },
-        {
-          "type": 6,
-          "winningUnit": 5608.1,
-          "dividend": "320"
-        },
-        {
-          "type": 7,
-          "winningUnit": 90032.4,
-          "dividend": "40"
-        }
-      ]
-    },
-    "drawResult": {
-      "drawnNo": [
-        6,
-        18,
-        31,
-        33,
-        44,
-        49
-      ],
-      "xDrawnNo": 2
-    }
-  },
-  "nextDraw": {
     "id": "202596N",
     "year": "2025",
     "no": 96,
     "openDate": "2025-08-30+08:00",
     "closeDate": "2025-09-02T21:15:00+08:00",
     "drawDate": "2025-09-02+08:00",
-    "status": "Defined",
+    "status": "Result",
     "snowballCode": "",
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "59292994",
+      "sell": false,
+      "status": "Result",
+      "totalInvestment": "76055719",
       "jackpot": "27268849",
       "unitBet": 10,
       "estimatedPrize": "",
       "derivedFirstPrizeDiv": "32000000",
+      "lotteryPrizes": []
+    },
+    "drawResult": {
+      "drawnNo": [
+        5,
+        18,
+        23,
+        24,
+        29,
+        49
+      ],
+      "xDrawnNo": 11
+    }
+  },
+  "nextDraw": {
+    "id": "202597N",
+    "year": "2025",
+    "no": 97,
+    "openDate": "2025-09-02+08:00",
+    "closeDate": "2025-09-06T21:15:00+08:00",
+    "drawDate": "2025-09-06+08:00",
+    "status": "Defined",
+    "snowballCode": "SAS",
+    "snowballName_en": "Season Opening Snowball",
+    "snowballName_ch": "開鑼金多寶",
+    "lotteryPool": {
+      "sell": false,
+      "status": "StopSell",
+      "totalInvestment": "",
+      "jackpot": "",
+      "unitBet": 10,
+      "estimatedPrize": "",
+      "derivedFirstPrizeDiv": "",
       "lotteryPrizes": []
     },
     "drawResult": {
@@ -99,6 +63,39 @@
     }
   },
   "history": [
+    {
+      "id": "202596N",
+      "year": "2025",
+      "no": 96,
+      "openDate": "2025-08-30+08:00",
+      "closeDate": "2025-09-02T21:15:00+08:00",
+      "drawDate": "2025-09-02+08:00",
+      "status": "Result",
+      "snowballCode": "",
+      "snowballName_en": "",
+      "snowballName_ch": "",
+      "lotteryPool": {
+        "sell": false,
+        "status": "Result",
+        "totalInvestment": "76055719",
+        "jackpot": "27268849",
+        "unitBet": 10,
+        "estimatedPrize": "",
+        "derivedFirstPrizeDiv": "32000000",
+        "lotteryPrizes": []
+      },
+      "drawResult": {
+        "drawnNo": [
+          5,
+          18,
+          23,
+          24,
+          29,
+          49
+        ],
+        "xDrawnNo": 11
+      }
+    },
     {
       "id": "202595N",
       "year": "2025",

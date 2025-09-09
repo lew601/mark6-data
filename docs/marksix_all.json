@@ -16,13 +16,49 @@
     "snowballName_ch": "",
     "lotteryPool": {
       "sell": false,
-      "status": "Result",
+      "status": "Payout",
       "totalInvestment": "96617126",
       "jackpot": "39088490",
       "unitBet": 10,
       "estimatedPrize": "",
       "derivedFirstPrizeDiv": "47000000",
-      "lotteryPrizes": []
+      "lotteryPrizes": [
+        {
+          "type": 1,
+          "winningUnit": 0.0,
+          "dividend": "0"
+        },
+        {
+          "type": 2,
+          "winningUnit": 3.5,
+          "dividend": "1062310"
+        },
+        {
+          "type": 3,
+          "winningUnit": 143.5,
+          "dividend": "69090"
+        },
+        {
+          "type": 4,
+          "winningUnit": 376.0,
+          "dividend": "9600"
+        },
+        {
+          "type": 5,
+          "winningUnit": 7092.5,
+          "dividend": "640"
+        },
+        {
+          "type": 6,
+          "winningUnit": 11476.4,
+          "dividend": "320"
+        },
+        {
+          "type": 7,
+          "winningUnit": 133197.6,
+          "dividend": "40"
+        }
+      ]
     },
     "drawResult": {
       "drawnNo": [
@@ -48,13 +84,13 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": false,
-      "status": "Defined",
-      "totalInvestment": "",
-      "jackpot": "",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "13779705",
+      "jackpot": "50242843",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "",
+      "derivedFirstPrizeDiv": "63000000",
       "lotteryPrizes": []
     },
     "drawResult": {

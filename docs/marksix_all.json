@@ -77,8 +77,8 @@
     "year": "2025",
     "no": 104,
     "openDate": "2025-09-20+08:00",
-    "closeDate": "2025-09-23T21:15:00+08:00",
-    "drawDate": "2025-09-23+08:00",
+    "closeDate": "2025-09-25T21:15:00+08:00",
+    "drawDate": "2025-09-25+08:00",
     "status": "Defined",
     "snowballCode": "",
     "snowballName_en": "",
@@ -86,11 +86,11 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "13873105",
+      "totalInvestment": "14857535",
       "jackpot": "9972108",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "14000000",
+      "derivedFirstPrizeDiv": "16000000",
       "lotteryPrizes": []
     },
     "drawResult": {

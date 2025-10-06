@@ -84,9 +84,9 @@
     "snowballName_en": "Mid-Autumn Festival Snowball",
     "snowballName_ch": "中秋金多寶",
     "lotteryPool": {
-      "sell": false,
-      "status": "StopSell",
-      "totalInvestment": "115058775",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "120838157",
       "jackpot": "60000000",
       "unitBet": 10,
       "estimatedPrize": "",

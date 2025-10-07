@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2025-10-07+08:00"
+    "ts": "2025-10-08+08:00"
   },
   "lastDraw": {
     "id": "2025107N",
@@ -84,9 +84,9 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "15527500",
+      "sell": false,
+      "status": "StopSell",
+      "totalInvestment": "15577980",
       "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",

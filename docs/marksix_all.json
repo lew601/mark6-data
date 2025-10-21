@@ -84,9 +84,9 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": false,
-      "status": "StopSell",
-      "totalInvestment": "28967260",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "31335428",
       "jackpot": "20214066",
       "unitBet": 10,
       "estimatedPrize": "",

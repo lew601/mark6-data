@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2025-11-24+08:00"
+    "ts": "2025-11-25+08:00"
   },
   "lastDraw": {
     "id": "2025124N",
@@ -84,9 +84,9 @@
     "snowballName_en": "Lucky Tuesday Snowball",
     "snowballName_ch": "幸運二金多寶",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "82473520",
+      "sell": false,
+      "status": "StopSell",
+      "totalInvestment": "84767609",
       "jackpot": "53269904",
       "unitBet": 10,
       "estimatedPrize": "",

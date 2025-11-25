@@ -84,9 +84,9 @@
     "snowballName_en": "Lucky Tuesday Snowball",
     "snowballName_ch": "幸運二金多寶",
     "lotteryPool": {
-      "sell": false,
-      "status": "StopSell",
-      "totalInvestment": "84767609",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "92716959",
       "jackpot": "53269904",
       "unitBet": 10,
       "estimatedPrize": "",

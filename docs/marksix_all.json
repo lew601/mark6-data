@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2025-12-01+08:00"
+    "ts": "2025-12-02+08:00"
   },
   "lastDraw": {
     "id": "2025125N",
@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "118638630",
+      "totalInvestment": "121210112",
       "jackpot": "71442523",
       "unitBet": 10,
       "estimatedPrize": "",

@@ -4,93 +4,57 @@
     "ts": "2025-12-13+08:00"
   },
   "lastDraw": {
-    "id": "2025128N",
-    "year": "2025",
-    "no": 128,
-    "openDate": "2025-12-06+08:00",
-    "closeDate": "2025-12-11T21:15:00+08:00",
-    "drawDate": "2025-12-11+08:00",
-    "status": "Result",
-    "snowballCode": "",
-    "snowballName_en": "",
-    "snowballName_ch": "",
-    "lotteryPool": {
-      "sell": false,
-      "status": "Payout",
-      "totalInvestment": "185287642",
-      "jackpot": "61215075",
-      "unitBet": 10,
-      "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "80000000",
-      "lotteryPrizes": [
-        {
-          "type": 1,
-          "winningUnit": 1.0,
-          "dividend": "82123790"
-        },
-        {
-          "type": 2,
-          "winningUnit": 7.5,
-          "dividend": "929270"
-        },
-        {
-          "type": 3,
-          "winningUnit": 358.5,
-          "dividend": "51840"
-        },
-        {
-          "type": 4,
-          "winningUnit": 613.5,
-          "dividend": "9600"
-        },
-        {
-          "type": 5,
-          "winningUnit": 17550.8,
-          "dividend": "640"
-        },
-        {
-          "type": 6,
-          "winningUnit": 17412.7,
-          "dividend": "320"
-        },
-        {
-          "type": 7,
-          "winningUnit": 320308.6,
-          "dividend": "40"
-        }
-      ]
-    },
-    "drawResult": {
-      "drawnNo": [
-        1,
-        5,
-        6,
-        25,
-        30,
-        42
-      ],
-      "xDrawnNo": 43
-    }
-  },
-  "nextDraw": {
     "id": "2025129N",
     "year": "2025",
     "no": 129,
     "openDate": "2025-12-11+08:00",
     "closeDate": "2025-12-13T21:15:00+08:00",
     "drawDate": "2025-12-13+08:00",
+    "status": "Result",
+    "snowballCode": "",
+    "snowballName_en": "",
+    "snowballName_ch": "",
+    "lotteryPool": {
+      "sell": false,
+      "status": "Result",
+      "totalInvestment": "41753807",
+      "jackpot": "0",
+      "unitBet": 10,
+      "estimatedPrize": "",
+      "derivedFirstPrizeDiv": "8000000",
+      "lotteryPrizes": []
+    },
+    "drawResult": {
+      "drawnNo": [
+        10,
+        17,
+        19,
+        28,
+        45,
+        49
+      ],
+      "xDrawnNo": 1
+    }
+  },
+  "nextDraw": {
+    "id": "2025130N",
+    "year": "2025",
+    "no": 130,
+    "openDate": "2025-12-13+08:00",
+    "closeDate": "2025-12-16T21:15:00+08:00",
+    "drawDate": "2025-12-16+08:00",
     "status": "Defined",
     "snowballCode": "",
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "34306192",
-      "jackpot": "0",
+      "sell": false,
+      "status": "Defined",
+      "totalInvestment": "",
+      "jackpot": "",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "8000000",
+      "derivedFirstPrizeDiv": "",
       "lotteryPrizes": []
     },
     "drawResult": {
@@ -99,6 +63,39 @@
     }
   },
   "history": [
+    {
+      "id": "2025129N",
+      "year": "2025",
+      "no": 129,
+      "openDate": "2025-12-11+08:00",
+      "closeDate": "2025-12-13T21:15:00+08:00",
+      "drawDate": "2025-12-13+08:00",
+      "status": "Result",
+      "snowballCode": "",
+      "snowballName_en": "",
+      "snowballName_ch": "",
+      "lotteryPool": {
+        "sell": false,
+        "status": "Result",
+        "totalInvestment": "41753807",
+        "jackpot": "0",
+        "unitBet": 10,
+        "estimatedPrize": "",
+        "derivedFirstPrizeDiv": "8000000",
+        "lotteryPrizes": []
+      },
+      "drawResult": {
+        "drawnNo": [
+          10,
+          17,
+          19,
+          28,
+          45,
+          49
+        ],
+        "xDrawnNo": 1
+      }
+    },
     {
       "id": "2025128N",
       "year": "2025",

@@ -16,13 +16,49 @@
     "snowballName_ch": "",
     "lotteryPool": {
       "sell": false,
-      "status": "Result",
+      "status": "Payout",
       "totalInvestment": "38972058",
       "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",
       "derivedFirstPrizeDiv": "8000000",
-      "lotteryPrizes": []
+      "lotteryPrizes": [
+        {
+          "type": 1,
+          "winningUnit": 0.0,
+          "dividend": "0"
+        },
+        {
+          "type": 2,
+          "winningUnit": 0.0,
+          "dividend": "0"
+        },
+        {
+          "type": 3,
+          "winningUnit": 44.5,
+          "dividend": "91200"
+        },
+        {
+          "type": 4,
+          "winningUnit": 117.0,
+          "dividend": "9600"
+        },
+        {
+          "type": 5,
+          "winningUnit": 3009.4,
+          "dividend": "640"
+        },
+        {
+          "type": 6,
+          "winningUnit": 3639.6,
+          "dividend": "320"
+        },
+        {
+          "type": 7,
+          "winningUnit": 58572.0,
+          "dividend": "40"
+        }
+      ]
     },
     "drawResult": {
       "drawnNo": [
@@ -48,13 +84,13 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": false,
-      "status": "Defined",
-      "totalInvestment": "",
-      "jackpot": "",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "8917730",
+      "jackpot": "9521912",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "",
+      "derivedFirstPrizeDiv": "15000000",
       "lotteryPrizes": []
     },
     "drawResult": {
@@ -76,13 +112,49 @@
       "snowballName_ch": "",
       "lotteryPool": {
         "sell": false,
-        "status": "Result",
+        "status": "Payout",
         "totalInvestment": "38972058",
         "jackpot": "0",
         "unitBet": 10,
         "estimatedPrize": "",
         "derivedFirstPrizeDiv": "8000000",
-        "lotteryPrizes": []
+        "lotteryPrizes": [
+          {
+            "type": 1,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 2,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 3,
+            "winningUnit": 44.5,
+            "dividend": "91200"
+          },
+          {
+            "type": 4,
+            "winningUnit": 117.0,
+            "dividend": "9600"
+          },
+          {
+            "type": 5,
+            "winningUnit": 3009.4,
+            "dividend": "640"
+          },
+          {
+            "type": 6,
+            "winningUnit": 3639.6,
+            "dividend": "320"
+          },
+          {
+            "type": 7,
+            "winningUnit": 58572.0,
+            "dividend": "40"
+          }
+        ]
       },
       "drawResult": {
         "drawnNo": [

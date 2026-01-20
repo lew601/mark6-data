@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2026-01-20+08:00"
+    "ts": "2026-01-21+08:00"
   },
   "lastDraw": {
     "id": "20268N",
@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "9767665",
+      "totalInvestment": "10083375",
       "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",
@@ -2167,75 +2167,6 @@
           32
         ],
         "xDrawnNo": 13
-      }
-    },
-    {
-      "id": "2025112N",
-      "year": "2025",
-      "no": 112,
-      "openDate": "2025-10-16+08:00",
-      "closeDate": "2025-10-18T21:15:00+08:00",
-      "drawDate": "2025-10-18+08:00",
-      "status": "Result",
-      "snowballCode": "",
-      "snowballName_en": "",
-      "snowballName_ch": "",
-      "lotteryPool": {
-        "sell": false,
-        "status": "Payout",
-        "totalInvestment": "46775382",
-        "jackpot": "13260456",
-        "unitBet": 10,
-        "estimatedPrize": "",
-        "derivedFirstPrizeDiv": "18000000",
-        "lotteryPrizes": [
-          {
-            "type": 1,
-            "winningUnit": 0.0,
-            "dividend": "0"
-          },
-          {
-            "type": 2,
-            "winningUnit": 0.0,
-            "dividend": "0"
-          },
-          {
-            "type": 3,
-            "winningUnit": 87.5,
-            "dividend": "52970"
-          },
-          {
-            "type": 4,
-            "winningUnit": 183.0,
-            "dividend": "9600"
-          },
-          {
-            "type": 5,
-            "winningUnit": 4244.7,
-            "dividend": "640"
-          },
-          {
-            "type": 6,
-            "winningUnit": 5288.1,
-            "dividend": "320"
-          },
-          {
-            "type": 7,
-            "winningUnit": 78514.6,
-            "dividend": "40"
-          }
-        ]
-      },
-      "drawResult": {
-        "drawnNo": [
-          5,
-          13,
-          17,
-          18,
-          31,
-          44
-        ],
-        "xDrawnNo": 2
       }
     },
     {

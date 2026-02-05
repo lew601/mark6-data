@@ -4,12 +4,12 @@
     "ts": "2026-02-05+08:00"
   },
   "lastDraw": {
-    "id": "202614N",
+    "id": "202615N",
     "year": "2026",
-    "no": 14,
-    "openDate": "2026-01-31+08:00",
-    "closeDate": "2026-02-03T21:15:00+08:00",
-    "drawDate": "2026-02-03+08:00",
+    "no": 15,
+    "openDate": "2026-02-03+08:00",
+    "closeDate": "2026-02-05T21:15:00+08:00",
+    "drawDate": "2026-02-05+08:00",
     "status": "Result",
     "snowballCode": "",
     "snowballName_en": "",
@@ -17,68 +17,68 @@
     "lotteryPool": {
       "sell": false,
       "status": "Payout",
-      "totalInvestment": "91368676",
-      "jackpot": "36741948",
+      "totalInvestment": "41559103",
+      "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "46000000",
+      "derivedFirstPrizeDiv": "8000000",
       "lotteryPrizes": [
         {
           "type": 1,
-          "winningUnit": 2.0,
-          "dividend": "23276930"
+          "winningUnit": 0.0,
+          "dividend": "0"
         },
         {
           "type": 2,
-          "winningUnit": 5.5,
-          "dividend": "594660"
+          "winningUnit": 4.0,
+          "dividend": "373340"
         },
         {
           "type": 3,
-          "winningUnit": 144.5,
-          "dividend": "60350"
+          "winningUnit": 87.5,
+          "dividend": "45510"
         },
         {
           "type": 4,
-          "winningUnit": 636.0,
+          "winningUnit": 203.0,
           "dividend": "9600"
         },
         {
           "type": 5,
-          "winningUnit": 7886.6,
+          "winningUnit": 4182.0,
           "dividend": "640"
         },
         {
           "type": 6,
-          "winningUnit": 10795.4,
+          "winningUnit": 4232.7,
           "dividend": "320"
         },
         {
           "type": 7,
-          "winningUnit": 140170.6,
+          "winningUnit": 78040.3,
           "dividend": "40"
         }
       ]
     },
     "drawResult": {
       "drawnNo": [
-        12,
-        23,
-        27,
-        37,
-        39,
-        42
+        1,
+        9,
+        17,
+        24,
+        35,
+        36
       ],
-      "xDrawnNo": 5
+      "xDrawnNo": 42
     }
   },
   "nextDraw": {
-    "id": "202615N",
+    "id": "202616N",
     "year": "2026",
-    "no": 15,
-    "openDate": "2026-02-03+08:00",
-    "closeDate": "2026-02-05T21:15:00+08:00",
-    "drawDate": "2026-02-05+08:00",
+    "no": 16,
+    "openDate": "2026-02-05+08:00",
+    "closeDate": "2026-02-07T21:15:00+08:00",
+    "drawDate": "2026-02-07+08:00",
     "status": "Defined",
     "snowballCode": "",
     "snowballName_en": "",
@@ -86,11 +86,11 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "33935493",
-      "jackpot": "0",
+      "totalInvestment": "8581050",
+      "jackpot": "8000000",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "8000000",
+      "derivedFirstPrizeDiv": "13000000",
       "lotteryPrizes": []
     },
     "drawResult": {
@@ -99,6 +99,75 @@
     }
   },
   "history": [
+    {
+      "id": "202615N",
+      "year": "2026",
+      "no": 15,
+      "openDate": "2026-02-03+08:00",
+      "closeDate": "2026-02-05T21:15:00+08:00",
+      "drawDate": "2026-02-05+08:00",
+      "status": "Result",
+      "snowballCode": "",
+      "snowballName_en": "",
+      "snowballName_ch": "",
+      "lotteryPool": {
+        "sell": false,
+        "status": "Payout",
+        "totalInvestment": "41559103",
+        "jackpot": "0",
+        "unitBet": 10,
+        "estimatedPrize": "",
+        "derivedFirstPrizeDiv": "8000000",
+        "lotteryPrizes": [
+          {
+            "type": 1,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 2,
+            "winningUnit": 4.0,
+            "dividend": "373340"
+          },
+          {
+            "type": 3,
+            "winningUnit": 87.5,
+            "dividend": "45510"
+          },
+          {
+            "type": 4,
+            "winningUnit": 203.0,
+            "dividend": "9600"
+          },
+          {
+            "type": 5,
+            "winningUnit": 4182.0,
+            "dividend": "640"
+          },
+          {
+            "type": 6,
+            "winningUnit": 4232.7,
+            "dividend": "320"
+          },
+          {
+            "type": 7,
+            "winningUnit": 78040.3,
+            "dividend": "40"
+          }
+        ]
+      },
+      "drawResult": {
+        "drawnNo": [
+          1,
+          9,
+          17,
+          24,
+          35,
+          36
+        ],
+        "xDrawnNo": 42
+      }
+    },
     {
       "id": "202614N",
       "year": "2026",

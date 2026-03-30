@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2026-03-29+08:00"
+    "ts": "2026-03-30+08:00"
   },
   "lastDraw": {
     "id": "202634N",
@@ -84,9 +84,9 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": false,
-      "status": "StopSell",
-      "totalInvestment": "16608175",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "19058490",
       "jackpot": "9531696",
       "unitBet": 10,
       "estimatedPrize": "",

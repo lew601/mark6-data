@@ -84,9 +84,9 @@
     "snowballName_en": "Easter Snowball",
     "snowballName_ch": "復活節金多寶",
     "lotteryPool": {
-      "sell": false,
-      "status": "StopSell",
-      "totalInvestment": "60240260",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "66351365",
       "jackpot": "63000000",
       "unitBet": 10,
       "estimatedPrize": "",

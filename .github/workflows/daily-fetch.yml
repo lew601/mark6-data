@@ -1,46 +1,65 @@
 # .github/workflows/daily-fetch.yml
 
+name: Daily MarkSix Full Data Update
+
 permissions:
   contents: write
 
-
-name: Daily MarkSix Full Data Update
-
 on:
   schedule:
-    - cron: '32 4,7,10,13,16,23 * * *'  # UTC；HKT=+8 小時 => 07:30,12:30,15:30,18:30,21:45,00:30
-    - cron: '50 13 * * *'                # HKT: 21:45（六合彩開獎後補抓）
+    - cron: '32 4,7,10,13,16,23 * * *' # UTC; HKT=UTC+8 => 12:32,15:32,18:32,21:32,00:32,07:32
+    - cron: '50 13 * * *' # UTC 13:50 => HKT 21:50 (post-draw catch-up)
   workflow_dispatch:
+
+concurrency:
+  group: daily-mark6-update-main
+  cancel-in-progress: true
 
 jobs:
   update-json:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
 
-    - name: Install dependencies
-      run: pip install requests
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Run full crawler
-      run: python marksix_full_crawler.py
+      - name: Run full crawler
+        run: python marksix_full_crawler.py
 
-    - name: Ensure docs folder & disable Jekyll
-      run: |
-        mkdir -p docs
-        touch docs/.nojekyll
+      - name: Ensure docs folder & disable Jekyll
+        run: |
+          mkdir -p docs
+          touch docs/.nojekyll
 
+      - name: Commit and push only when changed
+        run: |
+          set -euo pipefail
 
-    - name: Commit & push updated JSON
-      uses: EndBug/add-and-commit@v9
-      with:
-        author_name: GitHub Actions
-        author_email: actions@github.com
-        message: "ci: update marksix_all.json"
-        add: "docs/marksix_all.json"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+          git add docs/marksix_all.json docs/.nojekyll
+
+          if git diff --staged --quiet; then
+            echo "No data changes. Skip commit and push."
+            exit 0
+          fi
+
+          git commit -m "ci: update marksix_all.json"
+
+          # Rebase with remote tip to avoid non-fast-forward failures.
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2026-04-24+08:00"
+    "ts": "2026-04-25+08:00"
   },
   "lastDraw": {
     "id": "202644N",
@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "25809945",
+      "totalInvestment": "27504817",
       "jackpot": "20275542",
       "unitBet": 10,
       "estimatedPrize": "",

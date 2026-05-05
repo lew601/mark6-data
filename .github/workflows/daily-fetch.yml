@@ -51,66 +51,66 @@ jobs:
           max_attempts=23
           interval_seconds=120
 
-            mapfile -t target_info < <(python - <<'PY'
-      import json
+          mapfile -t target_info < <(python - <<'PY'
+            import json
 
-      with open("docs/marksix_all.json", encoding="utf-8") as file:
-        data = json.load(file)
+            with open("docs/marksix_all.json", encoding="utf-8") as file:
+              data = json.load(file)
 
-      next_draw = data.get("nextDraw") or {}
-      target_draw_no = next_draw.get("no")
-      target_close_date = (next_draw.get("closeDate") or "")[:10]
+            next_draw = data.get("nextDraw") or {}
+            target_draw_no = next_draw.get("no")
+            target_close_date = (next_draw.get("closeDate") or "")[:10]
 
-      print("" if target_draw_no is None else target_draw_no)
-      print(target_close_date)
-      PY
-            )
+            print("" if target_draw_no is None else target_draw_no)
+            print(target_close_date)
+            PY
+          )
 
-            export TARGET_DRAW_NO="${target_info[0]}"
-            export TARGET_CLOSE_DATE="${target_info[1]}"
+          export TARGET_DRAW_NO="${target_info[0]}"
+          export TARGET_CLOSE_DATE="${target_info[1]}"
 
-            echo "Target draw no: ${TARGET_DRAW_NO:-unknown}"
-            echo "Target close date: ${TARGET_CLOSE_DATE:-unknown}"
+          echo "Target draw no: ${TARGET_DRAW_NO:-unknown}"
+          echo "Target close date: ${TARGET_CLOSE_DATE:-unknown}"
 
           for attempt in $(seq 1 "$max_attempts"); do
             echo "Polling attempt $attempt/$max_attempts"
             python marksix_full_crawler.py
 
             if python - <<'PY'
-import json
-      import os
-import sys
-from datetime import datetime, timedelta, timezone
+              import json
+              import os
+              import sys
+              from datetime import datetime, timedelta, timezone
 
-with open("docs/marksix_all.json", encoding="utf-8") as file:
-    data = json.load(file)
+              with open("docs/marksix_all.json", encoding="utf-8") as file:
+                data = json.load(file)
 
-today_hkt = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime("%Y-%m-%d")
-      target_draw_no = os.environ.get("TARGET_DRAW_NO", "")
-      target_close_date = os.environ.get("TARGET_CLOSE_DATE", "")
-last_draw = data.get("lastDraw", {})
-next_draw = data.get("nextDraw", {})
+              today_hkt = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime("%Y-%m-%d")
+              target_draw_no = os.environ.get("TARGET_DRAW_NO", "")
+              target_close_date = os.environ.get("TARGET_CLOSE_DATE", "")
+              last_draw = data.get("lastDraw", {})
+              next_draw = data.get("nextDraw", {})
 
-last_close = (last_draw.get("closeDate") or "")[:10]
-next_close = (next_draw.get("closeDate") or "")[:10]
-last_status = last_draw.get("status")
-      last_no = "" if last_draw.get("no") is None else str(last_draw.get("no"))
+              last_close = (last_draw.get("closeDate") or "")[:10]
+              next_close = (next_draw.get("closeDate") or "")[:10]
+              last_status = last_draw.get("status")
+              last_no = "" if last_draw.get("no") is None else str(last_draw.get("no"))
 
-      if target_draw_no and last_no == target_draw_no and last_status == "Result":
-        print(f"Target draw {target_draw_no} result is ready.")
-    sys.exit(0)
+              if target_draw_no and last_no == target_draw_no and last_status == "Result":
+                print(f"Target draw {target_draw_no} result is ready.")
+                sys.exit(0)
 
-      if target_close_date and target_close_date != today_hkt:
-        print("No draw scheduled for tonight. Stop polling.")
-        sys.exit(0)
+              if target_close_date and target_close_date != today_hkt:
+                print("No draw scheduled for tonight. Stop polling.")
+                sys.exit(0)
 
-      if not target_close_date and last_close != today_hkt and next_close != today_hkt:
-    print("No draw scheduled for tonight. Stop polling.")
-    sys.exit(0)
+              if not target_close_date and last_close != today_hkt and next_close != today_hkt:
+                print("No draw scheduled for tonight. Stop polling.")
+                sys.exit(0)
 
-      print(f"Draw result still pending. Current last draw no/status: {last_no}/{last_status}")
-sys.exit(1)
-PY
+              print(f"Draw result still pending. Current last draw no/status: {last_no}/{last_status}")
+              sys.exit(1)
+              PY
             then
               break
             fi

@@ -131,10 +131,23 @@ def graphql_request(session, operation_name, query, variables, headers):
     return data
 
 
+def draw_sort_key(draw):
+    return (draw.get("drawDate") or "", draw.get("no") or -1)
+
+
 def normalize_prizes(prizes):
+    if not isinstance(prizes, list):
+        return
+
     for prize in prizes:
+        if not isinstance(prize, dict):
+            continue
+
         raw = prize.get("winningUnit", 0)
-        prize["winningUnit"] = round(raw / 10, 1)
+        try:
+            prize["winningUnit"] = round(float(raw) / 10, 1)
+        except (TypeError, ValueError):
+            prize["winningUnit"] = 0.0
 
 
 def pick_draws(draws_data):
@@ -142,8 +155,14 @@ def pick_draws(draws_data):
     if not isinstance(draws, list) or len(draws) < 2:
         raise RuntimeError("marksixDraw returned fewer than 2 lotteryDraws")
 
-    sorted_draws = sorted(draws, key=lambda draw: draw.get("drawDate") or "")
-    return sorted_draws[0], sorted_draws[-1]
+    sorted_draws = sorted(draws, key=draw_sort_key)
+    last_draw = next((draw for draw in reversed(sorted_draws) if draw.get("status") == "Result"), None)
+    next_draw = next((draw for draw in sorted_draws if draw.get("status") != "Result"), None)
+
+    if last_draw is not None and next_draw is not None:
+        return last_draw, next_draw
+
+    return sorted_draws[-2], sorted_draws[-1]
 
 
 def fetch_history(session, last_n=HISTORY_LIMIT):
@@ -163,7 +182,7 @@ def fetch_history(session, last_n=HISTORY_LIMIT):
     draws = data.get("lotteryDraws")
     if not isinstance(draws, list):
         raise RuntimeError("marksixResult response is missing lotteryDraws")
-    return draws
+    return sorted(draws, key=draw_sort_key, reverse=True)
 
 
 def fetch_draws(session):
@@ -173,7 +192,9 @@ def fetch_draws(session):
 
 def save_full(history, draws_data, filename="docs/marksix_all.json"):
     """Combine history and draws_data into one JSON and save."""
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    output_dir = os.path.dirname(filename)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     last_draw, next_draw = pick_draws(draws_data)
     time_offset = draws_data.get("timeOffset")
     if not isinstance(time_offset, dict):

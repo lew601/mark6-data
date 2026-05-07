@@ -7,8 +7,10 @@ permissions:
 
 on:
   schedule:
-    - cron: '32 4,10,14,16 * * *' # UTC; HKT=UTC+8 => 12:32,18:32,22:32,00:32
-    - cron: '32 13 * * *' # UTC 13:32 => HKT 21:32 (post-draw polling kickoff)
+    - cron: '32 0,12,18,22 * * *' # HKT => 00:32,12:32,18:32,22:32
+      timezone: 'Asia/Hong_Kong'
+    - cron: '32 21 * * *' # HKT 21:32 (post-draw polling kickoff)
+      timezone: 'Asia/Hong_Kong'
   workflow_dispatch:
 
 concurrency:
@@ -43,7 +45,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ "$EVENT_NAME" != "schedule" || "$EVENT_SCHEDULE" != "32 13 * * *" ]]; then
+          if [[ "$EVENT_NAME" != "schedule" || "$EVENT_SCHEDULE" != "32 21 * * *" ]]; then
             python marksix_full_crawler.py
             exit 0
           fi

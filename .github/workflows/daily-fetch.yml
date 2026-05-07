@@ -7,10 +7,10 @@ permissions:
 
 on:
   schedule:
-    - cron: '32 0,12,18,22 * * *' # HKT => 00:32,12:32,18:32,22:32
-      timezone: 'Asia/Hong_Kong'
-    - cron: '32 21 * * *' # HKT 21:32 (post-draw polling kickoff)
-      timezone: 'Asia/Hong_Kong'
+    - cron: "32 0,12,18,22 * * *" # HKT => 00:32,12:32,18:32,22:32
+      timezone: "Asia/Hong_Kong"
+    - cron: "32 21 * * *" # HKT 21:32 (post-draw polling kickoff)
+      timezone: "Asia/Hong_Kong"
   workflow_dispatch:
 
 concurrency:
@@ -31,8 +31,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          python-version: "3.12"
+          cache: "pip"
           cache-dependency-path: requirements.txt
 
       - name: Install dependencies
@@ -53,20 +53,7 @@ jobs:
           max_attempts=23
           interval_seconds=120
 
-          mapfile -t target_info < <(python - <<'PY'
-            import json
-
-            with open("docs/marksix_all.json", encoding="utf-8") as file:
-              data = json.load(file)
-
-            next_draw = data.get("nextDraw") or {}
-            target_draw_no = next_draw.get("no")
-            target_close_date = (next_draw.get("closeDate") or "")[:10]
-
-            print("" if target_draw_no is None else target_draw_no)
-            print(target_close_date)
-            PY
-          )
+            mapfile -t target_info < <(python -c "import json; data = json.load(open('docs/marksix_all.json', encoding='utf-8')); next_draw = data.get('nextDraw') or {}; target_draw_no = next_draw.get('no'); target_close_date = (next_draw.get('closeDate') or '')[:10]; print('' if target_draw_no is None else target_draw_no); print(target_close_date)")
 
           export TARGET_DRAW_NO="${target_info[0]}"
           export TARGET_CLOSE_DATE="${target_info[1]}"
@@ -78,41 +65,7 @@ jobs:
             echo "Polling attempt $attempt/$max_attempts"
             python marksix_full_crawler.py
 
-            if python - <<'PY'
-              import json
-              import os
-              import sys
-              from datetime import datetime, timedelta, timezone
-
-              with open("docs/marksix_all.json", encoding="utf-8") as file:
-                data = json.load(file)
-
-              today_hkt = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime("%Y-%m-%d")
-              target_draw_no = os.environ.get("TARGET_DRAW_NO", "")
-              target_close_date = os.environ.get("TARGET_CLOSE_DATE", "")
-              last_draw = data.get("lastDraw", {})
-              next_draw = data.get("nextDraw", {})
-
-              last_close = (last_draw.get("closeDate") or "")[:10]
-              next_close = (next_draw.get("closeDate") or "")[:10]
-              last_status = last_draw.get("status")
-              last_no = "" if last_draw.get("no") is None else str(last_draw.get("no"))
-
-              if target_draw_no and last_no == target_draw_no and last_status == "Result":
-                print(f"Target draw {target_draw_no} result is ready.")
-                sys.exit(0)
-
-              if target_close_date and target_close_date != today_hkt:
-                print("No draw scheduled for tonight. Stop polling.")
-                sys.exit(0)
-
-              if not target_close_date and last_close != today_hkt and next_close != today_hkt:
-                print("No draw scheduled for tonight. Stop polling.")
-                sys.exit(0)
-
-              print(f"Draw result still pending. Current last draw no/status: {last_no}/{last_status}")
-              sys.exit(1)
-              PY
+            if python -c "import json, os, sys; from datetime import datetime, timedelta, timezone; data = json.load(open('docs/marksix_all.json', encoding='utf-8')); today_hkt = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime('%Y-%m-%d'); target_draw_no = os.environ.get('TARGET_DRAW_NO', ''); target_close_date = os.environ.get('TARGET_CLOSE_DATE', ''); last_draw = data.get('lastDraw', {}); next_draw = data.get('nextDraw', {}); last_close = (last_draw.get('closeDate') or '')[:10]; next_close = (next_draw.get('closeDate') or '')[:10]; last_status = last_draw.get('status'); last_no = '' if last_draw.get('no') is None else str(last_draw.get('no')); result_ready = target_draw_no and last_no == target_draw_no and last_status == 'Result'; no_draw_tonight = (target_close_date and target_close_date != today_hkt) or (not target_close_date and last_close != today_hkt and next_close != today_hkt); print(f'Target draw {target_draw_no} result is ready.' if result_ready else ('No draw scheduled for tonight. Stop polling.' if no_draw_tonight else f'Draw result still pending. Current last draw no/status: {last_no}/{last_status}')); sys.exit(0 if (result_ready or no_draw_tonight) else 1)"
             then
               break
             fi

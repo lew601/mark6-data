@@ -7,9 +7,9 @@ permissions:
 
 on:
   schedule:
-    - cron: "32 0,12,18,22 * * *" # HKT => 00:32,12:32,18:32,22:32
+    - cron: "35 0,12,18,22 * * *" # HKT => 00:35,12:35,18:35,22:35
       timezone: "Asia/Hong_Kong"
-    - cron: "32 21 * * *" # HKT 21:32 (post-draw polling kickoff)
+    - cron: "35 21 * * *" # HKT 21:35 (post-draw polling kickoff)
       timezone: "Asia/Hong_Kong"
   workflow_dispatch:
 

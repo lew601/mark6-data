@@ -16,6 +16,7 @@ on:
 concurrency:
   group: daily-mark6-update-main
   cancel-in-progress: false
+  queue: max
 
 jobs:
   update-json:
@@ -44,8 +45,9 @@ jobs:
           EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: |
           set -euo pipefail
+          post_draw_schedule="35 21 * * *"
 
-          if [[ "$EVENT_NAME" != "schedule" || "$EVENT_SCHEDULE" != "32 21 * * *" ]]; then
+          if [[ "$EVENT_NAME" != "schedule" || "$EVENT_SCHEDULE" != "$post_draw_schedule" ]]; then
             python marksix_full_crawler.py
             exit 0
           fi
@@ -53,7 +55,7 @@ jobs:
           max_attempts=23
           interval_seconds=120
 
-            mapfile -t target_info < <(python -c "import json; data = json.load(open('docs/marksix_all.json', encoding='utf-8')); next_draw = data.get('nextDraw') or {}; target_draw_no = next_draw.get('no'); target_close_date = (next_draw.get('closeDate') or '')[:10]; print('' if target_draw_no is None else target_draw_no); print(target_close_date)")
+          mapfile -t target_info < <(python -c "import json; data = json.load(open('docs/marksix_all.json', encoding='utf-8')); next_draw = data.get('nextDraw') or {}; target_draw_no = next_draw.get('no'); target_close_date = (next_draw.get('closeDate') or '')[:10]; print('' if target_draw_no is None else target_draw_no); print(target_close_date)")
 
           export TARGET_DRAW_NO="${target_info[0]}"
           export TARGET_CLOSE_DATE="${target_info[1]}"

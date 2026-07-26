@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2026-07-25+08:00"
+    "ts": "2026-07-26+08:00"
   },
   "lastDraw": {
     "id": "202680N",
@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "9858170",
+      "totalInvestment": "11732505",
       "jackpot": "11525895",
       "unitBet": 10,
       "estimatedPrize": "",
@@ -2167,75 +2167,6 @@
           47
         ],
         "xDrawnNo": 28
-      }
-    },
-    {
-      "id": "202650N",
-      "year": "2026",
-      "no": 50,
-      "openDate": "2026-05-10+08:00",
-      "closeDate": "2026-05-12T21:15:00+08:00",
-      "drawDate": "2026-05-12+08:00",
-      "status": "Result",
-      "snowballCode": "",
-      "snowballName_en": "",
-      "snowballName_ch": "",
-      "lotteryPool": {
-        "sell": false,
-        "status": "Payout",
-        "totalInvestment": "65569303",
-        "jackpot": "22901594",
-        "unitBet": 10,
-        "estimatedPrize": "",
-        "derivedFirstPrizeDiv": "30000000",
-        "lotteryPrizes": [
-          {
-            "type": 1,
-            "winningUnit": 0.5,
-            "dividend": "30646080"
-          },
-          {
-            "type": 2,
-            "winningUnit": 1.5,
-            "dividend": "1720990"
-          },
-          {
-            "type": 3,
-            "winningUnit": 85.5,
-            "dividend": "80510"
-          },
-          {
-            "type": 4,
-            "winningUnit": 202.5,
-            "dividend": "9600"
-          },
-          {
-            "type": 5,
-            "winningUnit": 4892.5,
-            "dividend": "640"
-          },
-          {
-            "type": 6,
-            "winningUnit": 5720.0,
-            "dividend": "320"
-          },
-          {
-            "type": 7,
-            "winningUnit": 94633.3,
-            "dividend": "40"
-          }
-        ]
-      },
-      "drawResult": {
-        "drawnNo": [
-          4,
-          16,
-          19,
-          22,
-          25,
-          47
-        ],
-        "xDrawnNo": 40
       }
     },
     {

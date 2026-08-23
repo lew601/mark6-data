@@ -12,6 +12,12 @@ on:
     - cron: "35 21 * * *" # HKT 21:35 (post-draw polling kickoff)
       timezone: "Asia/Hong_Kong"
   workflow_dispatch:
+    inputs:
+      force_post_draw_polling:
+        description: "Run the same polling path used by the 21:35 scheduled job"
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: daily-mark6-update-main
@@ -21,7 +27,7 @@ concurrency:
 jobs:
   update-json:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 75
 
     steps:
       - name: Checkout repo
@@ -43,13 +49,27 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_SCHEDULE: ${{ github.event.schedule }}
+          FORCE_POST_DRAW_POLLING: ${{ github.event.inputs.force_post_draw_polling || 'false' }}
         run: |
           set -euo pipefail
           post_draw_schedule="35 21 * * *"
+          should_poll=false
+          mkdir -p docs
 
-          if [[ "$EVENT_NAME" != "schedule" || "$EVENT_SCHEDULE" != "$post_draw_schedule" ]]; then
+          if [[ "$FORCE_POST_DRAW_POLLING" == "true" ]]; then
+            should_poll=true
+          elif [[ "$EVENT_NAME" == "schedule" && "$EVENT_SCHEDULE" == "$post_draw_schedule" ]]; then
+            should_poll=true
+          fi
+
+          if [[ "$should_poll" != "true" ]]; then
             python marksix_full_crawler.py
             exit 0
+          fi
+
+          if [[ ! -f docs/marksix_all.json ]]; then
+            echo "Seed docs/marksix_all.json before polling."
+            python marksix_full_crawler.py
           fi
 
           max_attempts=23
@@ -65,7 +85,21 @@ jobs:
 
           for attempt in $(seq 1 "$max_attempts"); do
             echo "Polling attempt $attempt/$max_attempts"
-            python marksix_full_crawler.py
+            if python marksix_full_crawler.py; then
+              :
+            else
+              crawler_exit=$?
+              echo "Crawler attempt failed with exit code ${crawler_exit}."
+
+              if [[ "$attempt" -eq "$max_attempts" ]]; then
+                echo "Polling window ended after repeated crawler failures."
+                exit "$crawler_exit"
+              fi
+
+              echo "Waiting ${interval_seconds}s before retrying..."
+              sleep "$interval_seconds"
+              continue
+            fi
 
             if python -c "import json, os, sys; from datetime import datetime, timedelta, timezone; data = json.load(open('docs/marksix_all.json', encoding='utf-8')); today_hkt = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime('%Y-%m-%d'); target_draw_no = os.environ.get('TARGET_DRAW_NO', ''); target_close_date = os.environ.get('TARGET_CLOSE_DATE', ''); last_draw = data.get('lastDraw', {}); next_draw = data.get('nextDraw', {}); last_close = (last_draw.get('closeDate') or '')[:10]; next_close = (next_draw.get('closeDate') or '')[:10]; last_status = last_draw.get('status'); last_no = '' if last_draw.get('no') is None else str(last_draw.get('no')); result_ready = target_draw_no and last_no == target_draw_no and last_status == 'Result'; no_draw_tonight = (target_close_date and target_close_date != today_hkt) or (not target_close_date and last_close != today_hkt and next_close != today_hkt); print(f'Target draw {target_draw_no} result is ready.' if result_ready else ('No draw scheduled for tonight. Stop polling.' if no_draw_tonight else f'Draw result still pending. Current last draw no/status: {last_no}/{last_status}')); sys.exit(0 if (result_ready or no_draw_tonight) else 1)"
             then

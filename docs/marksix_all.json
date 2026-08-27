@@ -1,7 +1,7 @@
 {
   "timeOffset": {
     "m6": 0,
-    "ts": "2026-08-27+08:00"
+    "ts": "2026-08-28+08:00"
   },
   "lastDraw": {
     "id": "202694N",
@@ -84,9 +84,9 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "9880310",
+      "sell": false,
+      "status": "StopSell",
+      "totalInvestment": "11590465",
       "jackpot": "24831694",
       "unitBet": 10,
       "estimatedPrize": "",
@@ -2167,75 +2167,6 @@
           47
         ],
         "xDrawnNo": 24
-      }
-    },
-    {
-      "id": "202664N",
-      "year": "2026",
-      "no": 64,
-      "openDate": "2026-06-11+08:00",
-      "closeDate": "2026-06-14T21:15:00+08:00",
-      "drawDate": "2026-06-14+08:00",
-      "status": "Result",
-      "snowballCode": "",
-      "snowballName_en": "",
-      "snowballName_ch": "",
-      "lotteryPool": {
-        "sell": false,
-        "status": "Payout",
-        "totalInvestment": "41506827",
-        "jackpot": "0",
-        "unitBet": 10,
-        "estimatedPrize": "",
-        "derivedFirstPrizeDiv": "8000000",
-        "lotteryPrizes": [
-          {
-            "type": 1,
-            "winningUnit": 0.5,
-            "dividend": "8000000"
-          },
-          {
-            "type": 2,
-            "winningUnit": 1.5,
-            "dividend": "1045710"
-          },
-          {
-            "type": 3,
-            "winningUnit": 73.5,
-            "dividend": "56900"
-          },
-          {
-            "type": 4,
-            "winningUnit": 190.5,
-            "dividend": "9600"
-          },
-          {
-            "type": 5,
-            "winningUnit": 3089.3,
-            "dividend": "640"
-          },
-          {
-            "type": 6,
-            "winningUnit": 5038.7,
-            "dividend": "320"
-          },
-          {
-            "type": 7,
-            "winningUnit": 60418.5,
-            "dividend": "40"
-          }
-        ]
-      },
-      "drawResult": {
-        "drawnNo": [
-          10,
-          12,
-          17,
-          29,
-          32,
-          35
-        ],
-        "xDrawnNo": 1
       }
     },
     {

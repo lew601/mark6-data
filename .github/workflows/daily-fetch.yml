@@ -7,7 +7,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "35 0,12,18,22 * * *" # HKT => 00:35,12:35,18:35,22:35
+    - cron: "35 0,6,9,12,15,18,22 * * *" # HKT => 00:35,06:35,09:35,12:35,15:35,18:35,22:35
       timezone: "Asia/Hong_Kong"
     - cron: "35 21 * * *" # HKT 21:35 (post-draw polling kickoff)
       timezone: "Asia/Hong_Kong"
@@ -22,7 +22,6 @@ on:
 concurrency:
   group: daily-mark6-update-main
   cancel-in-progress: false
-  queue: max
 
 jobs:
   update-json:
@@ -83,6 +82,12 @@ jobs:
           echo "Target draw no: ${TARGET_DRAW_NO:-unknown}"
           echo "Target close date: ${TARGET_CLOSE_DATE:-unknown}"
 
+          echo "Running an initial crawler pass before polling."
+          if ! python marksix_full_crawler.py; then
+            echo "Initial crawler pass failed; polling will continue."
+          fi
+
+          polling_finished=false
           for attempt in $(seq 1 "$max_attempts"); do
             echo "Polling attempt $attempt/$max_attempts"
             if python marksix_full_crawler.py; then
@@ -103,6 +108,7 @@ jobs:
 
             if python -c "import json, os, sys; from datetime import datetime, timedelta, timezone; data = json.load(open('docs/marksix_all.json', encoding='utf-8')); today_hkt = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime('%Y-%m-%d'); target_draw_no = os.environ.get('TARGET_DRAW_NO', ''); target_close_date = os.environ.get('TARGET_CLOSE_DATE', ''); last_draw = data.get('lastDraw', {}); next_draw = data.get('nextDraw', {}); last_close = (last_draw.get('closeDate') or '')[:10]; next_close = (next_draw.get('closeDate') or '')[:10]; last_status = last_draw.get('status'); last_no = '' if last_draw.get('no') is None else str(last_draw.get('no')); result_ready = target_draw_no and last_no == target_draw_no and last_status == 'Result'; no_draw_tonight = (target_close_date and target_close_date != today_hkt) or (not target_close_date and last_close != today_hkt and next_close != today_hkt); print(f'Target draw {target_draw_no} result is ready.' if result_ready else ('No draw scheduled for tonight. Stop polling.' if no_draw_tonight else f'Draw result still pending. Current last draw no/status: {last_no}/{last_status}')); sys.exit(0 if (result_ready or no_draw_tonight) else 1)"
             then
+              polling_finished=true
               break
             fi
 
@@ -114,6 +120,11 @@ jobs:
             echo "Waiting ${interval_seconds}s before retrying..."
             sleep "$interval_seconds"
           done
+
+          if [[ "$polling_finished" != "true" ]]; then
+            echo "Polling ended without receiving the target draw result."
+            exit 1
+          fi
 
       - name: Ensure docs folder & disable Jekyll
         run: |

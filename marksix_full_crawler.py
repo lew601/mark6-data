@@ -191,6 +191,12 @@ def draw_sort_key(draw):
     return (draw.get("drawDate") or "", draw.get("no") or -1)
 
 
+def has_drawn_numbers(draw):
+    result = draw.get("drawResult") if isinstance(draw, dict) else None
+    drawn_numbers = result.get("drawnNo") if isinstance(result, dict) else None
+    return isinstance(drawn_numbers, list) and bool(drawn_numbers)
+
+
 def normalize_prizes(prizes):
     if not isinstance(prizes, list):
         return
@@ -212,8 +218,23 @@ def pick_draws(draws_data):
         raise RuntimeError("marksixDraw returned fewer than 2 lotteryDraws")
 
     sorted_draws = sorted(draws, key=draw_sort_key)
-    last_draw = next((draw for draw in reversed(sorted_draws) if draw.get("status") == "Result"), None)
-    next_draw = next((draw for draw in sorted_draws if draw.get("status") != "Result"), None)
+    last_draw = next(
+        (
+            draw
+            for draw in reversed(sorted_draws)
+            if draw.get("status") == "Result" or has_drawn_numbers(draw)
+        ),
+        None,
+    )
+    next_draw = next(
+        (
+            draw
+            for draw in sorted_draws
+            if draw.get("id") != (last_draw or {}).get("id")
+            and not has_drawn_numbers(draw)
+        ),
+        None,
+    )
 
     if last_draw is not None and next_draw is not None:
         return last_draw, next_draw
@@ -462,8 +483,15 @@ if __name__ == "__main__":
                     archive_history,
                     recent_history,
                 )
-                history = archive_history[:HISTORY_LIMIT]
             draws_data = fetch_draws(session)
+            live_last_draw, _ = pick_draws(draws_data)
+            if has_drawn_numbers(live_last_draw):
+                normalize_history([live_last_draw])
+                archive_history = merge_history(
+                    archive_history,
+                    [live_last_draw],
+                )
+            history = archive_history[:HISTORY_LIMIT]
         save_archive(archive_history)
         save_full(history, draws_data)
     except Exception as e:

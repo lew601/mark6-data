@@ -457,11 +457,11 @@ if __name__ == "__main__":
                     today - timedelta(days=RECENT_UPDATE_DAYS - 1),
                     today,
                 )
+                normalize_history(recent_history)
                 archive_history = merge_history(
                     archive_history,
                     recent_history,
                 )
-                normalize_history(archive_history)
                 history = archive_history[:HISTORY_LIMIT]
             draws_data = fetch_draws(session)
         save_archive(archive_history)

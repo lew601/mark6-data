@@ -30,32 +30,32 @@
         },
         {
           "type": 2,
-          "winningUnit": 3.5,
+          "winningUnit": 0.3,
           "dividend": "545930"
         },
         {
           "type": 3,
-          "winningUnit": 75.0,
+          "winningUnit": 7.5,
           "dividend": "67930"
         },
         {
           "type": 4,
-          "winningUnit": 184.5,
+          "winningUnit": 18.4,
           "dividend": "9600"
         },
         {
           "type": 5,
-          "winningUnit": 3961.0,
+          "winningUnit": 396.1,
           "dividend": "640"
         },
         {
           "type": 6,
-          "winningUnit": 5577.6,
+          "winningUnit": 557.8,
           "dividend": "320"
         },
         {
           "type": 7,
-          "winningUnit": 75642.0,
+          "winningUnit": 7564.2,
           "dividend": "40"
         }
       ]
@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "9613895",
+      "totalInvestment": "11902665",
       "jackpot": "13732287",
       "unitBet": 10,
       "estimatedPrize": "",

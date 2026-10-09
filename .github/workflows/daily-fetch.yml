@@ -66,21 +66,45 @@ jobs:
           touch docs/.nojekyll
 
       - name: Commit and push only when changed
+        env:
+          BACKFILL_HISTORY: ${{ github.event.inputs.backfill_history || 'false' }}
         run: |
           set -euo pipefail
 
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-          git add docs/marksix_all.json docs/archive/marksix_history.json docs/.nojekyll
+          for attempt in 1 2 3; do
+            if [[ "$attempt" -gt 1 ]]; then
+              echo "Remote main changed; refreshing data before retry $attempt."
+              git fetch origin main
+              git reset --mixed origin/main
+              git restore --source=origin/main -- \
+                docs/marksix_all.json \
+                docs/archive/marksix_history.json \
+                docs/.nojekyll
+              if [[ "$BACKFILL_HISTORY" == "true" ]]; then
+                python marksix_full_crawler.py --backfill-history
+              else
+                python marksix_full_crawler.py
+              fi
+            fi
 
-          if git diff --staged --quiet; then
-            echo "No data changes. Skip commit and push."
-            exit 0
-          fi
+            git add docs/marksix_all.json docs/archive/marksix_history.json docs/.nojekyll
 
-          git commit -m "ci: update marksix_all.json"
+            if git diff --staged --quiet; then
+              echo "No data changes. Skip commit and push."
+              exit 0
+            fi
 
-          # Rebase with remote tip to avoid non-fast-forward failures.
-          git pull --rebase origin main
-          git push origin HEAD:main
+            git commit -m "ci: update marksix_all.json"
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            echo "Push failed because main changed; retrying."
+          done
+
+          echo "Unable to publish data after 3 attempts." >&2
+          exit 1

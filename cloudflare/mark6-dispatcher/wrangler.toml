@@ -1,0 +1,12 @@
+name = "mark6-dispatcher"
+main = "src/index.js"
+compatibility_date = "2026-10-10"
+
+[triggers]
+# Cloudflare Cron Triggers use UTC. :15 UTC is :15 HKT and runs once every hour.
+crons = ["15 * * * *"]
+
+[vars]
+GITHUB_OWNER = "lew601"
+GITHUB_REPOSITORY = "mark6-data"
+GITHUB_WORKFLOW_PATH = "daily-fetch.yml"

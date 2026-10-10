@@ -7,6 +7,7 @@ import os
 import sys
 import time
 import argparse
+from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -486,10 +487,11 @@ if __name__ == "__main__":
             draws_data = fetch_draws(session)
             live_last_draw, _ = pick_draws(draws_data)
             if has_drawn_numbers(live_last_draw):
-                normalize_history([live_last_draw])
+                normalized_live_last_draw = deepcopy(live_last_draw)
+                normalize_history([normalized_live_last_draw])
                 archive_history = merge_history(
                     archive_history,
-                    [live_last_draw],
+                    [normalized_live_last_draw],
                 )
             history = archive_history[:HISTORY_LIMIT]
         save_archive(archive_history)

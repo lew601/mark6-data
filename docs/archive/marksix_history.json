@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "HKJC",
-  "generatedAt": "2026-10-10T13:37:42.231858+00:00",
+  "generatedAt": "2026-10-10T13:53:29.580518+00:00",
   "history": [
     {
       "id": "2026108N",
@@ -16,13 +16,49 @@
       "snowballName_ch": "",
       "lotteryPool": {
         "sell": false,
-        "status": "Result",
+        "status": "Payout",
         "totalInvestment": "61397499",
         "jackpot": "13732287",
         "unitBet": 10,
         "estimatedPrize": "",
         "derivedFirstPrizeDiv": "20000000",
-        "lotteryPrizes": []
+        "lotteryPrizes": [
+          {
+            "type": 1,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 2,
+            "winningUnit": 1.5,
+            "dividend": "1593700"
+          },
+          {
+            "type": 3,
+            "winningUnit": 99.0,
+            "dividend": "64390"
+          },
+          {
+            "type": 4,
+            "winningUnit": 185.4,
+            "dividend": "9600"
+          },
+          {
+            "type": 5,
+            "winningUnit": 4659.7,
+            "dividend": "640"
+          },
+          {
+            "type": 6,
+            "winningUnit": 6649.7,
+            "dividend": "320"
+          },
+          {
+            "type": 7,
+            "winningUnit": 88881.7,
+            "dividend": "40"
+          }
+        ]
       },
       "drawResult": {
         "drawnNo": [

@@ -4,9 +4,9 @@
 
 The Mark Six crawler is triggered hourly by two independent schedulers:
 
-- Cloudflare Worker at `:15` Hong Kong time, through GitHub
-  `workflow_dispatch`;
-- GitHub Actions schedule at `:45` Hong Kong time as a fallback.
+- Cloudflare Worker every hour at `:35` Hong Kong time, plus retries at
+  `21:45` and `21:50`, through GitHub `workflow_dispatch`;
+- GitHub Actions has the same schedule as a fallback.
 
 The Cloudflare Worker source and deployment instructions are in
 [`cloudflare/mark6-dispatcher/`](./cloudflare/mark6-dispatcher/). The

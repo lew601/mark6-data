@@ -3,8 +3,9 @@ main = "src/index.js"
 compatibility_date = "2026-10-10"
 
 [triggers]
-# Cloudflare Cron Triggers use UTC. :15 UTC is :15 HKT and runs once every hour.
-crons = ["15 * * * *"]
+# Cloudflare Cron Triggers use UTC. Since Hong Kong is UTC+8, these run at
+# :35 every hour plus the two extra HKT retries at 21:45 and 21:50.
+crons = ["35 * * * *", "45 13 * * *", "50 13 * * *"]
 
 [vars]
 GITHUB_OWNER = "lew601"

@@ -3,8 +3,8 @@
 This Worker triggers the `Daily MarkSix Full Data Update` GitHub Actions
 workflow once per hour through `workflow_dispatch`.
 
-Cloudflare Cron Triggers use UTC. The configured `15 * * * *` schedule runs at
-`:15` every hour in Hong Kong time as well.
+Cloudflare Cron Triggers use UTC. The configured schedules run at `:35` every
+hour in Hong Kong time, plus the two extra retries at 21:45 and 21:50 HKT.
 
 ## One-time setup
 
@@ -25,11 +25,12 @@ dashboard and run the Worker once manually if you want to test it immediately.
 
 ## Two independent triggers
 
-The repository workflow also runs through GitHub's own schedule at `:45` HKT
-as a fallback. Therefore the two schedulers are intentionally offset:
+The repository workflow also has the same schedule in GitHub Actions as a
+fallback:
 
-- Cloudflare: every hour at `:15` HKT
-- GitHub Actions: every hour at `:45` HKT
+- Every hour at `:35` HKT
+- 21:45 HKT
+- 21:50 HKT
 
 If both triggers run in the same hour, the existing workflow concurrency group
 serializes them and the second run exits without a commit when the data has not

@@ -7,7 +7,11 @@ permissions:
 
 on:
   schedule:
-    - cron: "45 * * * *" # HKT: every hour at :45; Cloudflare dispatches the independent :15 fallback
+    - cron: "35 * * * *" # HKT: every hour at :35
+      timezone: "Asia/Hong_Kong"
+    - cron: "45 21 * * *" # HKT 21:45, retry after the result is usually available
+      timezone: "Asia/Hong_Kong"
+    - cron: "50 21 * * *" # HKT 21:50, retry if prize data is still propagating
       timezone: "Asia/Hong_Kong"
   workflow_dispatch:
     inputs:

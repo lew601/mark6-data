@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "HKJC",
-  "generatedAt": "2026-10-13T13:45:21.621689+00:00",
+  "generatedAt": "2026-10-13T13:50:19.091217+00:00",
   "history": [
     {
       "id": "2026109N",
@@ -16,7 +16,7 @@
       "snowballName_ch": "",
       "lotteryPool": {
         "sell": false,
-        "status": "Result",
+        "status": "Payout",
         "totalInvestment": "72221659",
         "jackpot": "20903969",
         "unitBet": 10,

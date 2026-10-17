@@ -1,8 +1,41 @@
 {
   "schemaVersion": 1,
   "source": "HKJC",
-  "generatedAt": "2026-10-17T13:35:46.618576+00:00",
+  "generatedAt": "2026-10-17T13:37:41.847040+00:00",
   "history": [
+    {
+      "id": "2026111N",
+      "year": "2026",
+      "no": 111,
+      "openDate": "2026-10-15+08:00",
+      "closeDate": "2026-10-17T21:15:00+08:00",
+      "drawDate": "2026-10-17+08:00",
+      "status": "Result",
+      "snowballCode": "",
+      "snowballName_en": "",
+      "snowballName_ch": "",
+      "lotteryPool": {
+        "sell": false,
+        "status": "Result",
+        "totalInvestment": "47831902",
+        "jackpot": "8000000",
+        "unitBet": 10,
+        "estimatedPrize": "",
+        "derivedFirstPrizeDiv": "13000000",
+        "lotteryPrizes": []
+      },
+      "drawResult": {
+        "drawnNo": [
+          3,
+          13,
+          27,
+          29,
+          30,
+          40
+        ],
+        "xDrawnNo": 9
+      }
+    },
     {
       "id": "2026110N",
       "year": "2026",

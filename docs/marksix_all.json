@@ -86,7 +86,7 @@
     "lotteryPool": {
       "sell": true,
       "status": "StartSell",
-      "totalInvestment": "17788835",
+      "totalInvestment": "17782140",
       "jackpot": "13054243",
       "unitBet": 10,
       "estimatedPrize": "",

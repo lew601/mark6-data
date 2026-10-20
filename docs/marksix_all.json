@@ -84,13 +84,13 @@
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": false,
-      "status": "Defined",
-      "totalInvestment": "",
-      "jackpot": "",
+      "sell": true,
+      "status": "StartSell",
+      "totalInvestment": "8888500",
+      "jackpot": "0",
       "unitBet": 10,
       "estimatedPrize": "",
-      "derivedFirstPrizeDiv": "",
+      "derivedFirstPrizeDiv": "8000000",
       "lotteryPrizes": []
     },
     "drawResult": {

@@ -79,14 +79,14 @@
     "openDate": "2026-10-24+08:00",
     "closeDate": "2026-10-27T21:15:00+08:00",
     "drawDate": "2026-10-27+08:00",
-    "status": "Defined",
+    "status": "Closed",
     "snowballCode": "",
     "snowballName_en": "",
     "snowballName_ch": "",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "56149724",
+      "sell": false,
+      "status": "Closed",
+      "totalInvestment": "60376969",
       "jackpot": "13147574",
       "unitBet": 10,
       "estimatedPrize": "",
@@ -99,6 +99,39 @@
     }
   },
   "history": [
+    {
+      "id": "2026115N",
+      "year": "2026",
+      "no": 115,
+      "openDate": "2026-10-24+08:00",
+      "closeDate": "2026-10-27T21:15:00+08:00",
+      "drawDate": "2026-10-27+08:00",
+      "status": "Result",
+      "snowballCode": "",
+      "snowballName_en": "",
+      "snowballName_ch": "",
+      "lotteryPool": {
+        "sell": false,
+        "status": "Result",
+        "totalInvestment": "60376969",
+        "jackpot": "13147574",
+        "unitBet": 10,
+        "estimatedPrize": "",
+        "derivedFirstPrizeDiv": "20000000",
+        "lotteryPrizes": []
+      },
+      "drawResult": {
+        "drawnNo": [
+          2,
+          4,
+          18,
+          21,
+          24,
+          47
+        ],
+        "xDrawnNo": 31
+      }
+    },
     {
       "id": "2026114N",
       "year": "2026",
@@ -8308,75 +8341,6 @@
           38
         ],
         "xDrawnNo": 24
-      }
-    },
-    {
-      "id": "2025129N",
-      "year": "2025",
-      "no": 129,
-      "openDate": "2025-12-11+08:00",
-      "closeDate": "2025-12-13T21:15:00+08:00",
-      "drawDate": "2025-12-13+08:00",
-      "status": "Result",
-      "snowballCode": "",
-      "snowballName_en": "",
-      "snowballName_ch": "",
-      "lotteryPool": {
-        "sell": false,
-        "status": "Payout",
-        "totalInvestment": "41753807",
-        "jackpot": "0",
-        "unitBet": 10,
-        "estimatedPrize": "",
-        "derivedFirstPrizeDiv": "8000000",
-        "lotteryPrizes": [
-          {
-            "type": 1,
-            "winningUnit": 0.5,
-            "dividend": "8000000"
-          },
-          {
-            "type": 2,
-            "winningUnit": 1.0,
-            "dividend": "1525580"
-          },
-          {
-            "type": 3,
-            "winningUnit": 44.5,
-            "dividend": "91420"
-          },
-          {
-            "type": 4,
-            "winningUnit": 214.0,
-            "dividend": "9600"
-          },
-          {
-            "type": 5,
-            "winningUnit": 3294.5,
-            "dividend": "640"
-          },
-          {
-            "type": 6,
-            "winningUnit": 6199.3,
-            "dividend": "320"
-          },
-          {
-            "type": 7,
-            "winningUnit": 64671.7,
-            "dividend": "40"
-          }
-        ]
-      },
-      "drawResult": {
-        "drawnNo": [
-          10,
-          17,
-          19,
-          28,
-          45,
-          49
-        ],
-        "xDrawnNo": 1
       }
     }
   ]

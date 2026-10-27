@@ -22,7 +22,43 @@
       "unitBet": 10,
       "estimatedPrize": "",
       "derivedFirstPrizeDiv": "20000000",
-      "lotteryPrizes": []
+      "lotteryPrizes": [
+        {
+          "type": 1,
+          "winningUnit": 0.0,
+          "dividend": "0"
+        },
+        {
+          "type": 2,
+          "winningUnit": 0.2,
+          "dividend": "1110950"
+        },
+        {
+          "type": 3,
+          "winningUnit": 8.3,
+          "dividend": "70950"
+        },
+        {
+          "type": 4,
+          "winningUnit": 25.9,
+          "dividend": "9600"
+        },
+        {
+          "type": 5,
+          "winningUnit": 542.0,
+          "dividend": "640"
+        },
+        {
+          "type": 6,
+          "winningUnit": 745.6,
+          "dividend": "320"
+        },
+        {
+          "type": 7,
+          "winningUnit": 10085.6,
+          "dividend": "40"
+        }
+      ]
     },
     "drawResult": {
       "drawnNo": [
@@ -82,7 +118,43 @@
         "unitBet": 10,
         "estimatedPrize": "",
         "derivedFirstPrizeDiv": "20000000",
-        "lotteryPrizes": []
+        "lotteryPrizes": [
+          {
+            "type": 1,
+            "winningUnit": 0.0,
+            "dividend": "0"
+          },
+          {
+            "type": 2,
+            "winningUnit": 0.2,
+            "dividend": "1110950"
+          },
+          {
+            "type": 3,
+            "winningUnit": 8.3,
+            "dividend": "70950"
+          },
+          {
+            "type": 4,
+            "winningUnit": 25.9,
+            "dividend": "9600"
+          },
+          {
+            "type": 5,
+            "winningUnit": 542.0,
+            "dividend": "640"
+          },
+          {
+            "type": 6,
+            "winningUnit": 745.6,
+            "dividend": "320"
+          },
+          {
+            "type": 7,
+            "winningUnit": 10085.6,
+            "dividend": "40"
+          }
+        ]
       },
       "drawResult": {
         "drawnNo": [

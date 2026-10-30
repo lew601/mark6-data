@@ -84,9 +84,9 @@
     "snowballName_en": "Halloween Snowball",
     "snowballName_ch": "萬聖節金多寶",
     "lotteryPool": {
-      "sell": true,
-      "status": "StartSell",
-      "totalInvestment": "97550900",
+      "sell": false,
+      "status": "StopSell",
+      "totalInvestment": "97756635",
       "jackpot": "60000000",
       "unitBet": 10,
       "estimatedPrize": "",

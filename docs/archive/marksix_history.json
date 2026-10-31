@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "HKJC",
-  "generatedAt": "2026-10-31T13:46:09.056906+00:00",
+  "generatedAt": "2026-10-31T13:51:09.957433+00:00",
   "history": [
     {
       "id": "2026116N",
@@ -16,7 +16,7 @@
       "snowballName_ch": "萬聖節金多寶",
       "lotteryPool": {
         "sell": false,
-        "status": "Result",
+        "status": "Payout",
         "totalInvestment": "187748219",
         "jackpot": "60000000",
         "unitBet": 10,
